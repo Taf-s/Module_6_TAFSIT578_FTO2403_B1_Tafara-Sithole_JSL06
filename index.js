@@ -38,24 +38,44 @@ displayMenuItems(menu);
 
 // Callback function for adding an item to the order
 function addToOrder(itemName) {
-    // Get the order items list and the order total element from the HTML
 
-    // Create a list item for the order
+    const orderItemsList = document.getElementById("order-items");
+    const orderTotal = document.getElementById("order-total");
 
-    // Set the text content of the list item to the item name
+    const listItem = document.createElement("li");
+    listItem.textContent = itemName;
+    listItem.addEventListener("click", () => {
+        removeFromOrder.call(listItem);
+    });
+    orderItemsList.appendChild(listItem);
 
-    // Append the list item to the order items list
+    const currentTotal = parseFloat(orderTotal.textContent);
+    const itemPrice = 60;
+    const newTotal = itemPrice + currentTotal ;
+    orderTotal.textContent = newTotal.toFixed(2);
 
-    // Calculate and update the total price
+}
 
-    // Update the text content of the order total element with the new total
+// Function to remove item from order 
+
+function removeFromOrder() {
+    const item = this;
+    const orderItemsList = document.getElementById("order-items");
+    const orderTotal = document.getElementById("order-total");
+
+    orderItemsList.removeChild(item);
+
+    const currentTotal = parseFloat(orderTotal.textContent);
+    const itemPrice = 60;
+    const newTotal = currentTotal - itemPrice;
+    orderTotal.textContent = newTotal.toFixed(2);
 }
 
 // Function to initialize the menu system
 function initMenuSystem(menu) {
     // Call the function to display menu items
+    displayMenuItems();
 
 }
-
 // Start the menu system by calling the init function
 initMenuSystem(menu);
