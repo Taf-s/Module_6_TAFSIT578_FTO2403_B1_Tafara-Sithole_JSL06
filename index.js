@@ -1,4 +1,4 @@
-// Sample menu data (Consider fetching this data from a server in a real-world scenario)
+// Sample menu data 
 const menu = {
     Starters: ["Garlic Bread", "Bruschetta", "Carbonara Arancini"],
     MainCourses: ["Margherita Pizza", "Spaghetti Carbonara", "Risotto alla Milanese"],
@@ -8,10 +8,10 @@ const menu = {
 // Function to display menu items by category
 function displayMenuItems(menu) {
 
-    // Get the menu container element from the HTML
+    // Getting the menu container element from the HTML
     const menuContainer = document.getElementById("menu");
 
-    // Loop through each category and its items in the menu object
+    // Looping through each category and its items in the menu object
 
     for (const [category, items] of Object.entries(menu)){
 
@@ -73,9 +73,9 @@ function removeFromOrder() {
 
 // Function to initialize the menu system
 function initMenuSystem(menu) {
-    // Call the function to display menu items
+    // Calling the function to display menu items
     displayMenuItems();
 
 }
-// Start the menu system by calling the init function
+// Starting the menu system by calling the init function
 initMenuSystem(menu);
